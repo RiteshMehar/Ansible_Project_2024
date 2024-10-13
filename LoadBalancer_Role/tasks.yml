@@ -1,0 +1,19 @@
+# tasks file for lbrole
+
+
+- name: "installed ha proxy package"
+  package:
+    name: "haproxy"
+    state: present
+
+- name: "configure the HAPROXY conf file"
+  template:
+    src: "haproxy.cfg.j2"
+    dest: "/etc/haproxy/haproxy.cfg"
+  notify: "restart the HAPROXY"
+
+
+- name: "start the HAPROXY"
+  service:
+    name: "haproxy"
+    state: started
