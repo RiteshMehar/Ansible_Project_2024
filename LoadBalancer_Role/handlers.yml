@@ -1,0 +1,6 @@
+# handlers file for lbrole
+
+- name: "restart the HAPROXY"
+  service:
+    name: "haproxy"
+    state: restarted
